@@ -1,0 +1,17 @@
+# Backup / OS
+*~
+*.swp
+.DS_Store
+Thumbs.db
+
+# Visual Studio / IDE / CLion / CMake
+.vscode/
+.idea/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile.user
+*.log
+
+# Local Temporary Files
+notes.txt

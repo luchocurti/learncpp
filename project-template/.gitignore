@@ -1,0 +1,29 @@
+# Build artifacts
+/build/
+/bin/
+/obj/
+*.o
+*.out
+*.exe
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+*.sec
+*.sym
+
+# Backup / OS
+*~
+*.swp
+.DS_Store
+Thumbs.db
+
+# Visual Studio / IDE / CLion / CMake
+.vscode/
+.idea/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile.user
+*.log
