@@ -1,6 +1,7 @@
 # README.md
 
 C++ project template.
+Minimal starter for C++ projects (Makefile, unit tests, sanitizers).
 
 Note: These files are set up to work with terminal toolchains.
 
@@ -28,7 +29,7 @@ project-template/
 
 ```sh
 sudo apt update
-sudo apt install build-essential make gdb valgrind cmake clang -y
+sudo apt install build-essential make cmake gdb valgrind clang git -y
 ```
 
 ---
@@ -42,7 +43,7 @@ sudo apt install build-essential make gdb valgrind cmake clang -y
 make
 ```
 
-This produces `bin/app`.
+This produces the executable `bin/app`.
 
 ## Run
 
@@ -52,13 +53,13 @@ This produces `bin/app`.
 # Prints: add(2, 3) = 5
 ```
 
-## Run Automate tests
+## Run automated tests
 
 ```sh
 make test
 ```
 
-This builds and runs `bin/test_add` (it exits non-zero on failure).
+This builds and runs `bin/test_add` (exits with a non-zero status if tests fail).
 
 ## Build & run with sanitizers (AddressSanitizer + UndefinedBehavior)
 
@@ -68,7 +69,7 @@ make sanitize
 # ./bin/app will be run automatically by the `sanitize` target
 ```
 
-Or to run a sanitizer build but not run automatically:
+To build with sanitizers but not run automatically:
 
 ```sh
 CXXFLAGS='-std=c++20 -Wall -Wextra -Wpedantic -g -O1 -fsanitize=address,undefined -fno-omit-frame-pointer' make all
@@ -79,7 +80,7 @@ CXXFLAGS='-std=c++20 -Wall -Wextra -Wpedantic -g -O1 -fsanitize=address,undefine
 
 ```sh
 gdb --args ./bin/app 2 3
-# Inside gdb: break main, run, next, print var, backtrace
+# Inside gdb: break main; run; next; print <variable>; bt
 ```
 
 ## Memory check with valgrind

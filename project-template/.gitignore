@@ -3,6 +3,7 @@
 /bin/
 /obj/
 *.o
+*.obj
 *.out
 *.exe
 *.elf

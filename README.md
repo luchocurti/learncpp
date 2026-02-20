@@ -2,10 +2,9 @@
 
 # Project Purpose
 
-This repository documents the progress while going through C++ exercises and
-practical examples.
+Repository of solutions, exercises, and small projects created while working through LearnCpp chapters.
 
-Each chapter folder contains solutions, experiments, and small projects.
+Each chapter folder contains solutions, experiments, and short example projects.
 
 ---
 
@@ -72,3 +71,4 @@ learncpp/
 
 + Learn Cpp https://learncpp.com/
 + Standard C++ Library reference https://cplusplus.com/reference/
++ Using C++ on Linux in VS Code https://code.visualstudio.com/docs/cpp/config-linux
