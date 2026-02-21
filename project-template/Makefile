@@ -13,12 +13,25 @@
 # Compiler selection (override by environment: e.g., CXX=clang++ make)
 CXX ?= g++
 
+# Build mode: "debug" (default) or "release".
+# You can choose the mode in two ways:
+#   make release         # recommended shortcut
+#   make MODE=release    # alternative
+# Or override flags directly: CXXFLAGS="..." make
+MODE ?= debug
+
+# Default compiler flags selected by MODE (use ?= so env overrides still work)
+ifeq ($(MODE),release)
+# Release: optimizations enabled, no debug symbols, disable asserts.
+CXXFLAGS ?= -std=c++20 -Wall -Wextra -Wpedantic -pedantic-errors -Weffc++ -Wsign-conversion -O3 -DNDEBUG
+else
 # Default compiler flags (debug-friendly):
 #  -std=c++20               : use modern C++ standard
 #  -Wall -Wextra -Wpedantic : enable common warnings
 #  -g                       : include debug symbols for gdb
 #  -O0                      : no optimization (makes debugging easier)
 CXXFLAGS ?= -std=c++20 -Wall -Wextra -Wpedantic -g -O0
+endif
 
 # Extra flags used for sanitizer builds (appended by the `sanitize` target)
 SAN_CXXFLAGS = -fsanitize=address,undefined -fno-omit-frame-pointer -O1
@@ -42,7 +55,7 @@ TEST_OBJ = $(BUILD_DIR)/test_add.o
 TEST_TARGET = $(BIN_DIR)/test_add
 
 # Phony targets: these are not real files and should always be executed
-.PHONY: all test sanitize run clean format
+.PHONY: all test sanitize run clean format release debug
 
 # Default target: build the main application
 all: $(TARGET)
@@ -50,11 +63,13 @@ all: $(TARGET)
 # Link step: produce the executable from object files
 $(TARGET): $(OBJS)
 	@mkdir -p $(BIN_DIR)
+	@echo "Linking $(TARGET) (mode=$(MODE))"
 	$(CXX) $(CXXFLAGS) -I$(INCDIR) -o $@ $^
 
 # Compile step rule: compile each source into the build directory as an object
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(BUILD_DIR)
+	@echo "Compiling $< -> $@ (mode=$(MODE))"
 	$(CXX) $(CXXFLAGS) -I$(INCDIR) -c $< -o $@
 
 # Build the test executable by compiling the test object and linking with the
@@ -85,6 +100,15 @@ sanitize: clean all
 # Convenience target to build and run the application
 run: all
 	./$(TARGET)
+
+# Release/debug shortcuts
+release: MODE := release
+release: clean all
+	@echo "Finished release build: $(TARGET)"
+
+debug: MODE := debug
+debug: clean all
+	@echo "Finished debug build: $(TARGET)"
 
 # Clean build artifacts
 clean:

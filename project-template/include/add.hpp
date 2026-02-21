@@ -12,6 +12,6 @@
 //   - The sum of a and b.
 //
 // Notes:
-//   - This uses built-in `int` arithmetic; callers should be aware of
-//     potential overflow for very large values.
+//   - This uses built-in `int` arithmetic; callers should be aware of potential
+//   overflow for very large values.
 int add(int a, int b);
