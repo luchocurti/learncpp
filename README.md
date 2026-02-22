@@ -56,9 +56,10 @@ Each chapter folder contains solutions, experiments, and short example projects.
 
 ```
 learncpp/
+├── .github/
 ├── AppenX-xxx/
 ├── ChapXX-xxx/
-├── project-template
+├── project-template/
 ├── .gitattributes
 ├── .gitignore
 ├── LICENSE
