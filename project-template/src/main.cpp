@@ -15,10 +15,12 @@
  *  2 - Invalid integer conversion
  */
 
+/* Preprocessor Directives */
 #include "add.hpp"
 #include <iostream>
 #include <string>
 
+/* Main Function */
 int main(int argc, char **argv) {
   if (argc == 3) {
     try {
