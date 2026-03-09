@@ -42,7 +42,7 @@ The Makefile supports two build modes: **debug** (the default) and
 **release**.
 
 -   **debug** (default)
-    -   Flags: `-std=c++20 -Wall -Wextra -Wpedantic -g -O0`
+    -   Flags: `-std=c++20 -Wall -Wextra -Wpedantic -DDEBUG -g -O0`
     -   Includes debug symbols (`-g`) and disables optimizations (`-O0`)
         to make stepping through the code with a debugger easy.
     -   Recommended for development, testing, sanitizers and readable

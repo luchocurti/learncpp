@@ -28,9 +28,10 @@ else
 # Default compiler flags (debug-friendly):
 #  -std=c++20               : use modern C++ standard
 #  -Wall -Wextra -Wpedantic : enable common warnings
+#  -DDEBUG                  : print debug messages
 #  -g                       : include debug symbols for gdb
 #  -O0                      : no optimization (makes debugging easier)
-CXXFLAGS ?= -std=c++20 -Wall -Wextra -Wpedantic -g -O0
+CXXFLAGS ?= -std=c++20 -Wall -Wextra -Wpedantic -DDEBUG -g -O0
 endif
 
 # Extra flags used for sanitizer builds (appended by the `sanitize` target)
