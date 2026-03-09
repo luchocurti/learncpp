@@ -32,8 +32,7 @@ int main() {
   long standard = getCPPStandard();
 
   if (standard == -1) {
-    std::cout << "Error: Unable to determine the language standard."
-              << std::endl;
+    std::cout << "Error: Unable to determine the language standard.\n";
     return 1;
   }
 
@@ -42,7 +41,7 @@ int main() {
      * know exactly what version the compiler is running */
     if (standard == stdCode[i]) {
       std::cout << "The compiler is using " << stdName[i]
-                << " (language standard code " << standard << "L)" << std::endl;
+                << " (language standard code " << standard << "L)\n";
       break;
     }
 
@@ -51,8 +50,8 @@ int main() {
      */
     if (standard < stdCode[i]) {
       std::cout << "The compiler is using a preview/pre-release of "
-                << stdName[i] << " (language standard code " << standard << "L)"
-                << std::endl;
+                << stdName[i] << " (language standard code " << standard
+                << "L)\n";
       break;
     }
   }

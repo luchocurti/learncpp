@@ -15,22 +15,21 @@
 
 static void expect(int got, int want, const char *desc) {
   if (got != want) {
-    std::cerr << "FAIL: " << desc << " got=" << got << " want=" << want
-              << std::endl;
+    std::cerr << "FAIL: " << desc << " got=" << got << " want=" << want << '\n';
     std::exit(1);
   } else {
-    std::cout << "OK: " << desc << std::endl;
+    std::cout << "OK: " << desc << '\n';
   }
 }
 
 int main() {
   /* Add test cases covering normal, boundary, and negative inputs. */
   expect(1, 1, "1 == 1");
-  // expect(add(1, 2), 3, "add(1,2)");
-  // expect(add(-1, 1), 0, "add(-1,1)");
-  // expect(add(1000, 234), 1234, "add(1000,234)");
+  // expect(add(1, 2), 3, "add(1, 2)");
+  // expect(add(-1, 1), 0, "add(-1, 1)");
+  // expect(add(1000, 234), 1234, "add(1000, 234)");
 
-  std::cout << "All tests passed" << std::endl;
+  std::cout << "All tests passed\n";
 
   return 0;
 }

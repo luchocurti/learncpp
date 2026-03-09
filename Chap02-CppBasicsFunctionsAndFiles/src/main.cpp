@@ -12,7 +12,7 @@
  */
 
 /* Preprocessor Directives */
-#include "add.hpp"  // add
+#include "add.hpp"  // add()
 #include <cstdlib>  // EXIT_SUCCESS, EXIT_FAILURE
 #include <iostream> // std::cout, std::cin, std::cerr
 
