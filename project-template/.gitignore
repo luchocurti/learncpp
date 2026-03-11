@@ -28,3 +28,4 @@ CMakeCache.txt
 cmake_install.cmake
 Makefile.user
 *.log
+*.code-workspace
