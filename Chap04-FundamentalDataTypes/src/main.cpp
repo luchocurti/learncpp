@@ -20,7 +20,6 @@
 #include <iomanip>  // std::setw, std::setprecision
 #include <iostream> // std::cout, std::cin, std::cerr
 #include <limits>   // std::numeric_limits
-// #include <type_traits> // std::is_fundamental
 
 /* Templates */
 template <typename T> void print_type(const char *name) {
